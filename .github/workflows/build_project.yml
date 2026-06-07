@@ -1,24 +1,18 @@
 name: Build project
-
-on: 
+on:
   push:
-  workflow_dispatch: 
-  
+  workflow_dispatch:
+
 jobs:
   build:
-    strategy:
-      matrix:
-        idf_ver: ["release-v4.4", "release-v5.0"] 
     runs-on: self-hosted
-    container: espressif/idf:${{ matrix.idf_ver }}
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
+
       - name: Build project
-        shell: bash
+        shell: powershell
         run: |
-          . ${IDF_PATH}/export.sh
-          pip install idf-component-manager idf-build-apps
-          idf-build-apps find
-          idf-build-apps build
+          cd "E:\robotics projects\esp-drone-master (1)\esp-drone-master"
+          idf.py build
