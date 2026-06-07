@@ -14,8 +14,8 @@ jobs:
       - name: Build project
         shell: powershell
         run: |
-          # 1. Load the ESP-IDF environment tools from your user folder
-          . $HOME\.espressif\eim_gui\..\..\esp\esp-idf\export.ps1
+          # 1. Directly source the tools from your specific Espressif folder
+          . "C:\Espressif\frameworks\esp-idf-v5.1.2\export.ps1"
           
           # 2. Move to your project folder
           cd "E:\robotics projects\esp-drone-master (1)\esp-drone-master"
